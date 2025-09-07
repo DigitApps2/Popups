@@ -1,4 +1,5 @@
-﻿using MPowerKit.Popups;
+﻿using Controls.UserDialogs.Maui;
+using MPowerKit.Popups;
 
 namespace Sample
 {
@@ -14,7 +15,8 @@ namespace Sample
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                }).UseUserDialogs();
+
 
             return builder.Build();
         }

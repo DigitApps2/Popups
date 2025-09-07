@@ -62,7 +62,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
-	</ItemGroup>
+    <PackageReference Include="Controls.UserDialogs.Maui" Version="1.9.0" />
+
+  </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\MPowerKit.Popups\MPowerKit.Popups.csproj" />
