@@ -1,4 +1,5 @@
-﻿using MPowerKit.Popups.Interfaces;
+﻿using Controls.UserDialogs.Maui;
+using MPowerKit.Popups.Interfaces;
 
 namespace Sample;
 
@@ -15,7 +16,7 @@ public partial class MainPage
         PopupService = MPowerKit.Popups.PopupService.Current;
     }
 
-    private void OnCounterClicked(object sender, EventArgs e)
+    private async void OnCounterClicked(object sender, EventArgs e)
     {
         count++;
 
@@ -24,6 +25,13 @@ public partial class MainPage
         else
             CounterBtn.Text = $"Clicked {count} times";
 
-        PopupService.ShowPopupAsync(new PopupTestPage());
+        for (int i = 0; i < 10; i++)
+        {
+            await PopupService.ShowPopupAsync(new PopupTestPage());
+            UserDialogs.Instance.ShowLoading("Loading");
+            await Task.Delay(500);
+            UserDialogs.Instance.HideHud();
+            await PopupService.HidePopupAsync();
+        }
     }
 }
